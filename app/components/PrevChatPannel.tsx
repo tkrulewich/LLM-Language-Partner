@@ -1,26 +1,26 @@
 import React from 'react';
 
-interface ChatHistoryItem {
+interface PrevChatItem {
   id: string;
   title: string;
 }
 
-interface ChatHistoryPanelProps {
-  history: ChatHistoryItem[];
+interface PrevChatPanelProps {
+  previousChats: PrevChatItem[];
   selectedChatId: string | null;
-  onSelectHistory: (id: string) => void;
+  onSelectChat: (id: string) => void;
   onNewChat: () => void;
 }
 
-const ChatHistoryPanel: React.FC<ChatHistoryPanelProps> = ({
-  history,
+const PrevChatPannel: React.FC<PrevChatPanelProps> = ({
+  previousChats,
   selectedChatId,
-  onSelectHistory,
+  onSelectChat,
   onNewChat,
 }) => {
   return (
     <div className="w-64 bg-gray-100 p-4 overflow-y-auto h-full">
-      <h2 className="text-lg font-semibold mb-4">Chat History</h2>
+      <h2 className="text-lg font-semibold mb-4">Previous Chats</h2>
 
       {/* New Chat Button */}
       <button
@@ -31,7 +31,7 @@ const ChatHistoryPanel: React.FC<ChatHistoryPanelProps> = ({
       </button>
 
       <ul className="space-y-2">
-        {history.map((item) => (
+        {previousChats.map((item) => (
           <li
             key={item.id}
             className={`p-2 shadow rounded-lg cursor-pointer ${
@@ -39,7 +39,7 @@ const ChatHistoryPanel: React.FC<ChatHistoryPanelProps> = ({
                 ? 'bg-blue-500 text-white'
                 : 'bg-white hover:bg-blue-100'
             }`}
-            onClick={() => onSelectHistory(item.id)}
+            onClick={() => onSelectChat(item.id)}
           >
             {item.title || 'New Chat'}
           </li>
@@ -49,4 +49,4 @@ const ChatHistoryPanel: React.FC<ChatHistoryPanelProps> = ({
   );
 };
 
-export default ChatHistoryPanel;
+export default PrevChatPannel;

@@ -44,7 +44,7 @@ interface ParsedLLMResponse {
 }
 
 
-const LanguageLearningChat = () => {
+const ChatView = () => {
     // Updated system prompt for original+corrected approach
     const SYSTEM_PROMPT = `You are a helpful language learning partner. Analyze each message for language mistakes and respond in exactly this format:
 
@@ -433,4 +433,4 @@ const LanguageLearningChat = () => {
   );
 };
 
-export default LanguageLearningChat;
+export default ChatView;
